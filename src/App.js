@@ -54,7 +54,13 @@ const App = () => {
         }  rounded shadow p-5`}
       >
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">Task Manager</h1>
+          <h1
+            className={`text-2xl ${
+              isDarkMode ? "text-white" : "text-black"
+            } font-bold`}
+          >
+            Task Manager
+          </h1>
           <button
             onClick={toggleTheme}
             className="p-2 bg-blue-500 text-white rounded focus:outline-none"
@@ -92,11 +98,12 @@ const App = () => {
             )}
           </button>
         </div>
-        <TaskForm onAddTask={addTask} />
+        <TaskForm onAddTask={addTask} isDarkMode={isDarkMode} />
         <TaskList
           tasks={tasks}
           onUpdateTask={updateTask}
           onDeleteTask={deleteTask}
+          isDarkMode={isDarkMode}
         />
       </div>
     </div>

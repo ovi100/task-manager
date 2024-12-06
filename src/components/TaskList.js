@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TaskList = ({ tasks, onUpdateTask, onDeleteTask }) => {
+const TaskList = ({ tasks, onUpdateTask, onDeleteTask, isDarkMode }) => {
   const [selectedOption, setSelectedOption] = useState("all");
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTask, setEditedTask] = useState({});
@@ -94,7 +94,11 @@ const TaskList = ({ tasks, onUpdateTask, onDeleteTask }) => {
                   }`}
                   onClick={() => toggleComplete(task)}
                 >
-                  <strong>{task.title}</strong>
+                  <strong
+                    className={`${isDarkMode ? "text-gray-300" : "text-black"}`}
+                  >
+                    {task.title}
+                  </strong>
                   <p className="text-sm">{task.description}</p>
                 </div>
                 <div className="flex items-center gap-2">

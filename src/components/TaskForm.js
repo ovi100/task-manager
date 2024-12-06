@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TaskForm = ({ onAddTask }) => {
+const TaskForm = ({ onAddTask,isDarkMode }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -36,7 +36,7 @@ const TaskForm = ({ onAddTask }) => {
       />
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-x-2 bg-blue-500 text-white p-2 rounded"
+        className={`w-full flex items-center justify-center gap-x-2 ${isDarkMode ? 'bg-blue-500' : 'bg-black'}  text-white p-2 rounded`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
